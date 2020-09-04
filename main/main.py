@@ -36,7 +36,6 @@ import os
 import pyb
 import machine
 from ota_updater.main.ota_updater import OTAUpdater
-#import example_module.main.
 
 ota_modules = ['ota_updater', 'example_module']  # Add your own application module to this list.
 
@@ -76,8 +75,9 @@ def download_and_install_updates_if_available():
     OTAUpdater.using_network(wifi_cfg['wifi']['ssid'], wifi_cfg['wifi']['password'])
 
     # Startup Load Configuration For Each Module and check for updates, download if available, then overwrite main/
-    for ota_module in ota_modules:        
-        ota_cfg = ota_config.load_ota_config(ota_module)
+    for ota_module in ota_modules:
+        print("ota_module=" + ota_module)
+        ota_cfg = load_ota_config(ota_module)
         if ota_cfg:
             o = OTAUpdater(ota_cfg['gitrepos']['url'], ota_module)
             # download_updates_if_available - Checks version numbers and downloads into next/
@@ -100,6 +100,12 @@ def start():
     # Run the application.
     # This could be your own application included as part of your own module:
     # yourapp.main()
+    try:
+        from example_module.main.example_module import ExampleModuleClass
+        example = ExampleModuleClass()
+        example.do_something()
+    except:
+        pass
 
 
 # Run boot()
