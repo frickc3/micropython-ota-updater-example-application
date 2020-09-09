@@ -1,5 +1,7 @@
 # micropython-ota-updater-example-application
 
+This is an example application for the OTA Updater with more detailed information found at [github.com/bensherlock/micropython-ota-updater](https://github.com/bensherlock/micropython-ota-updater).
+
 ## Usage
 
 Copy the contents of main/ to the root directory of the PYBD USB MSD.
