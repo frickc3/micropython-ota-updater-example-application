@@ -42,7 +42,7 @@ ota_modules = ['ota_updater', 'example_module']  # Add your own application modu
 def load_wifi_config():
     """Load Wifi Configuration from JSON file."""
     wifi_config = None
-    config_filename = 'wifi_cfg.json'
+    config_filename = 'config/wifi_cfg.json'
     try:
         with open(config_filename) as json_config_file:
             wifi_config = json.load(json_config_file)
@@ -54,7 +54,7 @@ def load_wifi_config():
 def load_ota_config(module_name):
     """Load OTA Configuration from JSON file."""
     ota_config = None
-    config_filename = module_name + '/' + module_name + '_gitrepos_cfg.json'
+    config_filename = 'config/' + module_name + '_gitrepo_cfg.json'
     try:
         with open(config_filename) as json_config_file:
             ota_config = json.load(json_config_file)
