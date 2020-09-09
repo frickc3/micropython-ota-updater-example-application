@@ -72,7 +72,10 @@ def download_and_install_updates_if_available():
         return False
 
     # Open Wifi
-    OTAUpdater.using_network(wifi_cfg['wifi']['ssid'], wifi_cfg['wifi']['password'])
+    if not OTAUpdater.using_network(wifi_cfg['wifi']['ssid'], wifi_cfg['wifi']['password']):
+        # Failed to connect
+        print("Unable to connect to wifi")
+        return False
 
     # Startup Load Configuration For Each Module and check for updates, download if available, then overwrite main/
     for ota_module in ota_modules:
