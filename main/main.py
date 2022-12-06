@@ -33,7 +33,7 @@
 #import network
 import json
 import os
-import pyb
+#import pyb
 import machine
 from ota_updater.main.ota_updater import OTAUpdater
 
